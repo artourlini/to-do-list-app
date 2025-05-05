@@ -1,0 +1,16 @@
+{% include "header.html" %} {% from 'bootstrap5/form.html' import render_form %}
+
+    {{ render_form(add_form, novalidate=True) }}
+
+    <form method="POST" action="/">
+        {% for todo in todos %}
+            <div class="form-check">
+                <input type="checkbox" name="options" value="{{ todo.id }}"> {{ todo.todo }}
+            </div>
+        {% endfor %}
+        <div class="form-check">
+            <input type="submit" value="Mark as Done">
+        </div>
+    </form>
+
+{% include "footer.html" %}
